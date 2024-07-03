@@ -22,7 +22,7 @@ public class Programa {
         System.out.println("Double:");
         double valorDouble = scanner.nextDouble();
 
-        scanner.nextLine(); // Para apagar o '\n' que fica quando se dá Enter
+        limparBufferInput(scanner); // Utilizar 
 
         // Pedir novamente o valor String
         System.out.println("String novamente:");
@@ -30,6 +30,12 @@ public class Programa {
 
         // Fazer display dos valores todos numa única linha
         System.out.print("Valor String: " + valorString + ", Valor int: " + valorInt + ", Valor char: " + valorChar + ", Valor double: " + valorDouble);
+    }
+
+    private static void limparBufferInput(Scanner scanner) {
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
     }
 
 }
