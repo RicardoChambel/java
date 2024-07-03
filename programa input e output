@@ -1,1 +1,29 @@
+import java.util.Scanner;
 
+public class Programa {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in); // Criar objeto scanner
+
+        // Pedir um valor String
+        System.out.println("String:");
+        String valorString = scanner.nextLine();
+
+        // Pedir um valor int
+        System.out.println("Int:");
+        int valorInt = scanner.nextInt();
+
+        // Pedir um valor char
+        System.out.println("Char:");
+        char valorChar = scanner.next().charAt(0);
+
+        // Pedir um valor double
+        System.out.println("Double:");
+        double valorDouble = scanner.nextDouble();
+
+        // Fazer display dos valores todos numa única linha
+        System.out.print("Valor String: " + valorString + ", Valor int: " + valorInt + ", Valor char: " + valorChar + ", Valor double: " + valorDouble);
+    }
+
+}
