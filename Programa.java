@@ -22,7 +22,7 @@ public class Programa {
         System.out.println("Double:");
         double valorDouble = scanner.nextDouble();
 
-        limparBufferInput(scanner); // Utilizar 
+        limparBufferInput(scanner); // Utilizar a função limparBufferInput para limpar o buffer
 
         // Pedir novamente o valor String
         System.out.println("String novamente:");
