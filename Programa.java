@@ -22,6 +22,12 @@ public class Programa {
         System.out.println("Double:");
         double valorDouble = scanner.nextDouble();
 
+        scanner.nextLine(); // Para apagar o '\n' que fica quando se dá Enter
+
+        // Pedir novamente o valor String
+        System.out.println("String novamente:");
+        valorString = scanner.nextLine(); // 'valorString' em vez de 'String valorString' porque estamos a reutilizar a variável
+
         // Fazer display dos valores todos numa única linha
         System.out.print("Valor String: " + valorString + ", Valor int: " + valorInt + ", Valor char: " + valorChar + ", Valor double: " + valorDouble);
     }
