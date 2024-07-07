@@ -1,6 +1,5 @@
 package Bicicletas;
 
-import javax.imageio.plugins.tiff.TIFFDirectory;
 import java.util.*;
 
 public class LojaBicicletas {
