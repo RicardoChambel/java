@@ -69,7 +69,7 @@ public class Multibanco {
                         depositar(conta);
                     } else if (resposta == 3) {
                         dadosDaConta(conta);
-                    }else { // Caso a resposta seja 0
+                    }else {
                         return;
                     }
                 }
@@ -96,7 +96,7 @@ public class Multibanco {
                     System.out.println("Valor Inválido");
                     scan.reset();
                 } else if (valor==0) {
-                    break; // Ao inserir 0 volta para o menu
+                    break;
                 } else{
                     System.out.println("Saldo insuficiente.");
                     scan.reset();
