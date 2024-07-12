@@ -189,7 +189,7 @@ public class Programa {
                     codigoAluno = codigoAluno.toUpperCase();
                     if (codigoAluno.equals("0")) {
                         return;
-                    } else if (codigoAluno.matches("^\\d[A-Z]\\d$") || codigoAluno.matches("^\\d[A-Z]\\d{2}$") || codigoAluno.matches("^\\d{2}[A-Z]\\d$") || codigoAluno.matches("^\\d[A-Z]\\d{2}$") ) {
+                    } else if (codigoAluno.matches("^\\d[A-Z]\\d$") || codigoAluno.matches("^\\d[A-Z]\\d{2}$") || codigoAluno.matches("^\\d{2}[A-Z]\\d$") || codigoAluno.matches("^\\d{2}[A-Z]\\d{2}$") ) {
                         break;
                     } else {
                         System.out.println("> Insira um código de aluno válido. Formato de código de aluno válido: 0N ou 00N (0 para cancelar)");
