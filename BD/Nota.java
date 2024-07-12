@@ -1,15 +1,13 @@
 package BD;
 
-public class Aluno extends Pessoa {
+public class Nota extends Registo {
     private String codigoAluno;
     private String turma;
-    private String numeroAluno;
 
-    public Aluno(String nome, String codigoAluno, String turma, String numeroAluno) {
-        super(nome, numeroAluno);
+    public Nota(String nome, String codigoAluno, String turma, String disciplina, double nota) {
+        super(nome, disciplina, nota, codigoAluno);
         this.codigoAluno = codigoAluno;
         this.turma = turma;
-        this.numeroAluno = numeroAluno;
     }
 
     public String getCodigoAluno() {
