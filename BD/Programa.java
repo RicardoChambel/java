@@ -390,7 +390,7 @@ public class Programa {
             }
 
             // Ler a primeira linha separadamente
-            String primeiraLinha = linhas.get(0);
+            String primeiraLinha = linhas.getFirst();
 
             // Ler as restantes linhas
             List<String> linhasRestantes = linhas.subList(1, linhas.size());
