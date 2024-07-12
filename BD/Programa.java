@@ -403,7 +403,7 @@ public class Programa {
 
             List<String[]> notas = linhasRestantes.stream()
                     .map(linha -> linha.split(";\\s*"))
-                    .collect(Collectors.toList());
+                    .toList();
 
             switch (opcao) {
                 case 1:
@@ -412,7 +412,7 @@ public class Programa {
 
                     List<String[]> notasFiltradasDisciplina = notas.stream()
                             .filter(n -> n[3].equalsIgnoreCase(disciplina))
-                            .collect(Collectors.toList());
+                            .toList();
 
                     if (notasFiltradasDisciplina.isEmpty()) {
                         System.out.println("> Nenhuma nota encontrada para a disciplina " + disciplina);
@@ -431,7 +431,7 @@ public class Programa {
 
                     List<String[]> notasFiltradasTurma = notas.stream()
                             .filter(n -> n[2].equalsIgnoreCase(turma))
-                            .collect(Collectors.toList());
+                            .toList();
 
                     if (notasFiltradasTurma.isEmpty()) {
                         System.out.println("> Nenhuma nota encontrada da turma " + turma);
