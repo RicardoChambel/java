@@ -19,7 +19,7 @@ public class Programa {
 
     public static void main(String[] args) {
         System.out.println();
-        // Criar ficheiros de alunos e notas caso ainda não existam
+        // Criar ficheiros de alunos e notas se ainda não existirem
         if(!Files.exists(ficheiro1)) {
             try {
                 Files.createFile(ficheiro1);
