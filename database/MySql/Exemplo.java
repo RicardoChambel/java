@@ -3,8 +3,7 @@ package MySQL.MySql;
 import java.sql.*;
 
 public class Exemplo {
-    static Connection connection =  null;
-    static String databaseName = "";
+    static String databaseName = ""; // funcionariosdb.funcionarios
     static String url = "jdbc:mysql://localhost:3306/"+databaseName;
     static String username = "root";
     static String password = "rootroot";
@@ -15,7 +14,6 @@ public class Exemplo {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement ps = connection.prepareStatement("insert into `funcionariosdb`.`funcionarios`(`nome`) values ('teste')");
-
             int status = ps.executeUpdate();
 
             if (status != 1) {
