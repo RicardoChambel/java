@@ -152,7 +152,7 @@ public class database {
                 pstmt.setInt(2, Integer.parseInt(idade));
                 pstmt.setString(3, cidade);
                 pstmt.executeUpdate();
-            } catch (NumberFormatException e) { // Caso não seja exception relacionado à idade
+            } catch (NumberFormatException e) { // Caso seja exception relacionado à idade
                 JOptionPane.showMessageDialog(null, "Idade | Parametro inválido: A idade deve ser um número inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
@@ -170,7 +170,7 @@ public class database {
                 pstmt.setInt(4, Integer.parseInt(id));
                 pstmt.executeUpdate();
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Parametros inválidos: A idade e o ID devem ser números inteiros.");
+                JOptionPane.showMessageDialog(null, "Idade ou ID | Parametros inválidos: A idade e o ID devem ser números inteiros.");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
