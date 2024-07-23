@@ -110,6 +110,7 @@ public class database {
             // Botão Cancelar
             btnCancelar.addActionListener(e -> limpar(textID, textNome, textIdade, textCidade));
 
+            // Listener quando é clicado em alguma row na tabela da direita
             table.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     int i = table.getSelectedRow();
