@@ -24,9 +24,10 @@ public class database {
             frame.setLocation(new Point(500, 200));
             frame.setResizable(false);
 
-            // Caixa do lado esquerdo
+            // Caixa do lado esquerdo---------------------------------------------------------
 
-            // Inputs -------------------
+            // -- Inputs --
+            // Input de ID (não editável)
             JLabel labelID = new JLabel("ID:");
             labelID.setBounds(20, 20, 80, 25);
             frame.add(labelID);
@@ -64,7 +65,7 @@ public class database {
             frame.add(textCidade);
 
 
-            // Botões -------------------
+            // -- Botões --
             // Botão Guardar
             JButton btnGuardar = new JButton("Guardar");
             btnGuardar.setBounds(20, 180, 100, 25);
@@ -80,7 +81,7 @@ public class database {
             btnCancelar.setBounds(240, 180, 100, 25);
             frame.add(btnCancelar);
 
-            // Caixa do lado direito
+            // Caixa do lado direito ---------------------------------------------------------
             JTable table = new JTable();
             CustomTableModel tabelaDireita = new CustomTableModel(new String[]{"ID", "Nome", "Idade", "Cidade"}, 0);
             table.setModel(tabelaDireita);
