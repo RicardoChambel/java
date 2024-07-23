@@ -24,10 +24,9 @@ public class database {
             frame.setLocation(new Point(500, 200));
             frame.setResizable(false);
 
-            // Caixa do lado esquerdo---------------------------------------------------------
+            // Caixa do lado esquerdo
 
-            // -- Inputs --
-            // Input de ID (não editável)
+            // Inputs -------------------
             JLabel labelID = new JLabel("ID:");
             labelID.setBounds(20, 20, 80, 25);
             frame.add(labelID);
@@ -65,7 +64,7 @@ public class database {
             frame.add(textCidade);
 
 
-            // -- Botões --
+            // Botões -------------------
             // Botão Guardar
             JButton btnGuardar = new JButton("Guardar");
             btnGuardar.setBounds(20, 180, 100, 25);
@@ -81,7 +80,7 @@ public class database {
             btnCancelar.setBounds(240, 180, 100, 25);
             frame.add(btnCancelar);
 
-            // Caixa do lado direito ---------------------------------------------------------
+            // Caixa do lado direito
             JTable table = new JTable();
             CustomTableModel tabelaDireita = new CustomTableModel(new String[]{"ID", "Nome", "Idade", "Cidade"}, 0);
             table.setModel(tabelaDireita);
@@ -111,7 +110,6 @@ public class database {
             // Botão Cancelar
             btnCancelar.addActionListener(e -> limpar(textID, textNome, textIdade, textCidade));
 
-            // Listener quando é clicado em alguma row na tabela da direita
             table.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     int i = table.getSelectedRow();
@@ -132,7 +130,7 @@ public class database {
     }
 
     public static void load(DefaultTableModel model) {
-        model.setRowCount(0); // Apagar as rows todas da tabela
+        model.setRowCount(0); // Clear existing data
         try (Connection conn = DriverManager.getConnection(url, username, password);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM funcionarios")) {
@@ -153,7 +151,7 @@ public class database {
                 pstmt.setInt(2, Integer.parseInt(idade));
                 pstmt.setString(3, cidade);
                 pstmt.executeUpdate();
-            } catch (NumberFormatException e) { // Caso seja exception relacionado à idade
+            } catch (NumberFormatException e) { // Caso não seja exception relacionado à idade
                 JOptionPane.showMessageDialog(null, "Idade | Parametro inválido: A idade deve ser um número inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
@@ -171,7 +169,7 @@ public class database {
                 pstmt.setInt(4, Integer.parseInt(id));
                 pstmt.executeUpdate();
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Idade ou ID | Parametros inválidos: A idade e o ID devem ser números inteiros.");
+                JOptionPane.showMessageDialog(null, "Parametros inválidos: A idade e o ID devem ser números inteiros.");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
