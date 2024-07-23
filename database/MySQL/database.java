@@ -131,7 +131,7 @@ public class database {
     }
 
     public static void load(DefaultTableModel model) {
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0); // Apagar as rows todas da tabela
         try (Connection conn = DriverManager.getConnection(url, username, password);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM funcionarios")) {
