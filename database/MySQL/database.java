@@ -27,7 +27,7 @@ public class database {
             frame.setTitle("Gestão de Funcionários");
             frame.setSize(winWidth, winHeight);
             frame.getContentPane().setLayout(null);
-            frame.setLocation(new Point(500, 200));
+            frame.setLocation(new Point(200, 200));
             frame.setResizable(false);
 
             // Criar a barra do menu
@@ -269,7 +269,7 @@ public class database {
         frame.getContentPane().setLayout(null);
         frame.setSize(winWidth, winHeight);
         frame.setResizable(false);
-        frame.setLocation(new Point(500, 200));
+        frame.setLocation(new Point(200, 200));
 
         // Criar a barra de menu
         JMenuBar menuBar = new JMenuBar();
@@ -317,7 +317,6 @@ public class database {
             gestaoFuncionarios();
         });
 
-        // Exibir a janela
         frame.setVisible(true);
     }
 
@@ -393,7 +392,7 @@ public class database {
                 pstmt.setInt(3, Integer.parseInt(idade));
                 pstmt.setString(4, cidade);
                 pstmt.setString(5, cargo);
-                pstmt.setInt(6, selectedId);  // Use selectedId here
+                pstmt.setInt(6, selectedId);
                 pstmt.executeUpdate();
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Parametros inválidos: A idade deve ser um número inteiro.", "Erro", JOptionPane.WARNING_MESSAGE);
