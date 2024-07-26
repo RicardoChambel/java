@@ -201,7 +201,7 @@ public class database {
             carregarCargos(tabelaCargos);
         });
 
-        // Carregar cargos do banco de dados
+        // Carregar cargos da base de dados
         carregarCargos(tabelaCargos);
 
         tabela.add(labelCargo);
@@ -216,11 +216,19 @@ public class database {
         btnAdicionar.addActionListener(e -> {
             String cargo = textCargo.getText().trim();
             if (!cargo.isEmpty()) {
-                adicionarCargo(cargo);
-                carregarCargos(tabelaCargos);
-                textCargo.setText("");
+                if (cargo == "Admin"){
+                    cargo = "Administrador";
+                }
+                if (cargoExiste(cargo)){
+                    adicionarCargo(cargo);
+                    carregarCargos(tabelaCargos);
+                    textCargo.setText("");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Esse cargo já existe!.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Nome de cargo inválido!.", "Erro", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Nome de cargo inválido!.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -237,6 +245,19 @@ public class database {
                 }
             }
         });
+
+        // Adicionar cargos principais sempre que uma janela carrega
+        if (!cargoExiste("Administrador")) {
+            adicionarCargo("Administrador");
+        }
+        if (!cargoExiste("Técnico")){
+            adicionarCargo("Técnico");
+        }
+        if (!cargoExiste("Atendimento")){
+            adicionarCargo("Atendimento");
+        }
+        carregarCargos(tabelaCargos);
+
 
         frame.setVisible(true);
     }
@@ -307,10 +328,37 @@ public class database {
         }
     }
 
+    private static boolean cargoExiste(String cargo) {
+        String query = "SELECT COUNT(*) FROM cargos WHERE cargo = ?";
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, cargo);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: "+ e);
+        }
+        return false;
+    }
+
 
     // Funcionários ---------------------------------------
     public static void gestaoFuncionarios() {
         try {
+
+            // Adicionar cargos principais sempre que uma janela carrega
+            if (!cargoExiste("Administrador")) {
+                adicionarCargo("Administrador");
+            }
+            if (!cargoExiste("Técnico")){
+                adicionarCargo("Técnico");
+            }
+            if (!cargoExiste("Atendimento")){
+                adicionarCargo("Atendimento");
+            }
+
             // Criar a janela de gestão de funcionários
             JFrame frame = new JFrame();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -456,7 +504,7 @@ public class database {
             comboCargo.setBounds(100, 220, 160, 25);
             frame.add(comboCargo);
             comboCargo.addItem("-- Indefinido --");
-            // Carregar cargos do banco de dados
+            // Carregar cargos da base de dados
             cargosParaCombobox(comboCargo);
             funcionarios.add(comboCargo);
 
